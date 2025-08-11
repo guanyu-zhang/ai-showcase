@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color-dark: #121212;
+            --text-color-dark: #e0e0e0;
+            --card-bg-color-dark: #1e1e1e;
+            --accent-color-dark: #6200ee;
+            --bg-color-light: #f5f5f5;
+            --text-color-light: #333333;
+            --card-bg-color-light: #ffffff;
+            --accent-color-light: #007bff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrap {
+            flex: 1;
+        }
+
+        body.dark-theme {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        body.light-theme {
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .project-list li {
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+            animation: glow 3s infinite ease-in-out;
+        }
+        
+        body.dark-theme .project-list li {
+            background-color: var(--card-bg-color-dark);
+            --glow-color: rgba(180, 120, 255, 0.7);
+        }
+
+        body.light-theme .project-list li {
+            background-color: var(--card-bg-color-light);
+            --glow-color: rgba(0, 123, 255, 0.5);
+        }
+
+        .project-list summary {
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .project-list p {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-color-dark);
+        }
+        
+        body.light-theme input:checked + .slider {
+            background-color: var(--accent-color-light);
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .view-project-btn {
+            background-color: var(--accent-color-light);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: inherit;
+        }
+
+        body.dark-theme .view-project-btn {
+            background-color: var(--accent-color-dark);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                margin-top: 60px;
+            }
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-column {
+                text-align: center;
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            50% {
+                box-shadow: 0 6px 20px var(--glow-color, rgba(0, 123, 255, 0.5));
+            }
+            100% {
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+        }
+
+        .site-footer {
+            padding: 40px 20px;
+            margin-top: auto;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        body.dark-theme .site-footer {
+            border-top: 1px solid #333;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin:0;
+        }
+
+        .footer-column ul li {
+            padding: 0;
+            margin-bottom: 10px;
+            animation: none;
+        }
+
+        .footer-column ul li a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        body.light-theme .footer-column ul li a {
+            color: var(--text-color-light);
+        }
+
+        body.dark-theme .footer-column ul li a {
+            color: var(--text-color-dark);
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icons li {
+            margin: 0 10px;
+        }
+
+        .social-icons a svg {
+            fill: var(--text-color-light);
+            transition: fill 0.3s;
+        }
+        
+        body.dark-theme .social-icons a svg {
+            fill: var(--text-color-dark);
+        }
+
+        .social-icons a:hover svg {
+            fill: var(--accent-color-light);
+        }
+
+        body.dark-theme .social-icons a:hover svg {
+            fill: var(--accent-color-dark);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        body.dark-theme .footer-bottom {
+            border-top: 1px solid #333;
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-wrap">
+        <div class="theme-switcher">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <h1>Vibe Coding Showcase</h1>
+        <ul class="project-list">
+            <li>
+                <details>
+                    <summary>Weather Card</summary>
+                    <p>An animated weather card that displays different weather conditions. The card should visually represent the following weather conditions with distinct animations: Wind, Rain, Sun, and Snow. The card has a dark background and the JavaScript includes a way to switch between the different weather conditions to demonstrate the animations for each.</p>
+                    <button class="view-project-btn" onclick="window.location.href='weather-card.html';">View Project</button>
+                </details>
+            </li>
+        </ul>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="main.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                body.classList.add('dark-theme');
+                body.classList.remove('light-theme');
+                themeToggle.checked = true;
+            } else {
+                body.classList.add('light-theme');
+                body.classList.remove('dark-theme');
+                themeToggle.checked = false;
+            }
+        }
+
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else if (prefersDark) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+
+        themeToggle.addEventListener('change', () => {
+            const newTheme = themeToggle.checked ? 'dark' : 'light';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>

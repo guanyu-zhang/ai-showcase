@@ -22,4 +22,6 @@ Added a hyperlink to the 'Powered by Gemini-CLI' text in the footer, linking to 
 
 Updated the hyperlink for 'Powered by Gemini-CLI' in the footer to point to the official Gemini CLI documentation.
 
-Added a `.gitignore` file to exclude all files except `.html`, `.js`, and `GEMINI.md` from version control.
+Added a .gitignore file to exclude all files except .html, .js, GEMINI.md, and .gitignore from version control.
+
+Updated the hyperlink for 'Powered by Gemini-CLI' in the footer to point to the official Gemini CLI GitHub repository.

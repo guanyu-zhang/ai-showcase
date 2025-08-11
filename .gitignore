@@ -1,6 +1,7 @@
 *
-!.html
-!.js
 !GEMINI.md
+!*.html
+!*.js
+!README.md
+!LICENSE
 !.gitignore
-!*/
