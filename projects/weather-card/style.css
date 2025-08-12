@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Weather Cards</title>
-    <style>
-        body {
+body {
             background-color: #121212;
             display: flex;
             flex-direction: column;
@@ -248,66 +241,3 @@
             margin: 5px 0;
             font-size: 0.9em;
         }
-        
-    </style>
-</head>
-<body>
-    <div class="content-wrap">
-        <div class="weather-card windy">
-            <h3>Windy</h3>
-            <svg class="wind-svg" viewBox="0 0 200 200">
-                <path class="wind-path" d="M 10,100 C 40,80 60,80 90,100 S 140,120 170,100"></path>
-                <path class="wind-path" d="M 10,120 C 40,100 60,100 90,120 S 140,140 170,120"></path>
-                <path class="wind-path" d="M 10,140 C 40,120 60,120 90,140 S 140,160 170,140"></path>
-            </svg>
-        </div>
-
-        <div class="weather-card rainy">
-            <h3>Rainy</h3>
-        </div>
-
-        <div class="weather-card sunny">
-            <h3>Sunny</h3>
-            <div class="sun"></div>
-            <div class="ray" style="--i:0"></div>
-            <div class="ray" style="--i:1"></div>
-            <div class="ray" style="--i:2"></div>
-            <div class="ray" style="--i:3"></div>
-            <div class="ray" style="--i:4"></div>
-            <div class="ray" style="--i:5"></div>
-            <div class="ray" style="--i:6"></div>
-            <div class="ray" style="--i:7"></div>
-        </div>
-
-        <div class="weather-card snowy">
-            <h3>Snowy</h3>
-        </div>
-    </div>
-
-    <div id="footer-placeholder"></div>
-
-    <script src="main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const rainyCard = document.querySelector('.rainy');
-            for (let i = 0; i < 50; i++) {
-                const raindrop = document.createElement('div');
-                raindrop.className = 'raindrop';
-                raindrop.style.left = Math.random() * 200 + 'px';
-                raindrop.style.animationDelay = Math.random() * -2 + 's';
-                rainyCard.appendChild(raindrop);
-            }
-
-            const snowyCard = document.querySelector('.snowy');
-            for (let i = 0; i < 50; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                snowflake.style.left = Math.random() * 200 + 'px';
-                snowflake.style.animationDelay = Math.random() * -10 + 's';
-                snowyCard.appendChild(snowflake);
-            }
-        });
-    </script>
-
-</body>
-</html>

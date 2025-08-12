@@ -1,0 +1,60 @@
+:root{
+  --topbar-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  --topbar-height: 56px;                          /* adjust to taste */
+  --content-max: 1100px;                          /* inner width */
+  --pad-x: clamp(14px, 3vw, 24px);
+}
+
+.floating-topbar{
+  position: fixed;
+  inset: 16px 16px auto 16px;                     /* top:16px; left:16px; right:16px */
+  height: calc(var(--topbar-height) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  background: var(--topbar-bg);
+  backdrop-filter: saturate(160%) blur(var(--topbar-blur));
+  -webkit-backdrop-filter: saturate(160%) blur(var(--topbar-blur)); /* iOS */
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: var(--topbar-shadow);
+  z-index: 1000;
+}
+
+/* Fallback when blur unsupported */
+ @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+  .floating-topbar{ background: rgba(16,16,20,0.85); }
+}
+
+.topbar-inner{
+  max-width: var(--content-max);
+  height: var(--topbar-height);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand{
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+}
+
+body.dark-theme .floating-topbar {
+    background: var(--topbar-bg-dark);
+}
+
+body.light-theme .floating-topbar {
+    background: var(--topbar-bg-light);
+}
+
+body.dark-theme .brand {
+    color: var(--topbar-text-dark);
+}
+
+body.light-theme .brand {
+    color: var(--topbar-text-light);
+}
