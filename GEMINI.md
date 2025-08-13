@@ -144,7 +144,7 @@ Fixed mobile layout for floating top bar:
 - Decreased `max-width` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` to `90vw` to increase the gap on mobile.
 
 Re-added 16px gap and rounded corners to the floating top bar:
-- Added `margin-top: 16px;` and `border-radius: 16px;` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`.
+- Added `top: 16px;` and `border-radius: 16px;` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`.
 
 Improved the shadow effect of the floating top bar in dark mode:
 - Added a new CSS variable `--topbar-shadow-dark` to `css/global-theme.css` with a purple shadow color (`rgba(180, 120, 255, 0.7)`) and the same shadow properties as the light theme.

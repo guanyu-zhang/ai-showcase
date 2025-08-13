@@ -1,6 +1,7 @@
 /* === Base (both themes) ======================================= */
 .floating-topbar {
-  position: fixed; inset: 0 0 auto 0; height: 56px;
+  position: fixed; inset: 16px 0 auto 0; height: 56px;
+  border-radius: 16px;
   z-index: 1000; display: grid; place-items: center;
   /* wrapper must be visually neutral */
   border: none !important;
