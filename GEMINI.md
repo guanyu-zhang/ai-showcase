@@ -30,7 +30,7 @@ Modularized the footer's CSS into a separate `footer.css` file and linked it in 
 
 Fixed the GitHub logo alignment in the footer on mobile by adding `justify-content: center;` to the `.social-icons` class in `footer.css`.
 
-Created a reusable theme toggle component by extracting its HTML, CSS, and JavaScript into `components/theme-toggle/theme-toggle.html`, `theme-toggle.css` and `theme-toggle.js` respectively.
+Created a reusable theme toggle component by extracting its HTML, CSS, and JavaScript into `components/theme-toggle/theme-toggle.html`, `theme-toggle.css`, and `theme-toggle.js` respectively.
 
 Organized the 'Weather Card' project into a subdirectory `projects/weather-card/` and moved `weather-card.html` to `projects/weather-card/index.html`.
 
@@ -152,7 +152,7 @@ Improved the shadow effect of the floating top bar in dark mode:
 - Added a new CSS variable `--topbar-shadow-dark` to `css/global-theme.css` with a purple shadow color (`rgba(180, 120, 255, 0.7)`) and the same shadow properties as the light theme.
 - Applied `--topbar-shadow-dark` to the `box-shadow` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` when `body.dark-theme` is active.
 - Adjusted the width of the `.floating-topbar` to be slightly wider than the `.topbar-inner` by introducing new CSS variables (`--topbar-inner-max-width-mobile`, `--topbar-inner-max-width-desktop`, `--floating-topbar-max-width-mobile`, `--floating-topbar-max-width-desktop`) in `css/global-theme.css` and applying them to `.floating-topbar` and `.topbar-inner` in `components/floating-topbar/floating-topbar.css`.
-- Fixed the floating top bar not being centered by applying `left: 50%; transform: translateX(-50%);` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`.
+- Fixed the floating top bar not being centered by applying `left: 50%; transform: translateX(-50%);` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`
 - Refined the shadow effect of the floating top bar in dark mode by changing `--topbar-shadow-dark` in `css/global-theme.css` to a softer, less overpowering black shadow (`0 4px 12px rgba(0, 0, 0, 0.4)`).
 - Fixed blurred and invisible top bar borders by moving the `backdrop-filter` from `.topbar-inner` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`, ensuring the border remains sharp.
 - Enhanced the purple border of the floating top bar in dark mode to fully wrap around the top bar with a consistent thickness, high saturation, and a subtle glow gradient, improving visibility and reinforcing brand color.
@@ -188,3 +188,6 @@ Committed "Style privacy.html with comprehensive CSS and improve readability".
 Improved privacy page container centering on mobile:
 - Reverted the specific `max-width` for `.container` within the `max-width: 520px` media query in `css/privacy.css`.
 - Removed `width: 100%;` from the global `.container` rule in `css/privacy.css` to allow `max-width` and `margin-inline: auto;` to correctly center the container on all screen sizes.
+
+Fixed todo list container centering on narrow screens:
+- Removed `padding: 20px;` from the `body` in `css/global-theme.css` to prevent it from interfering with the centering of the `.content-wrap` and its children on narrow screens.
