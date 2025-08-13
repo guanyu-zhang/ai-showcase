@@ -116,6 +116,8 @@ Fixed local development 404 errors by converting all asset paths (CSS and JS) in
 
 Fixed asset loading issues on GitHub Pages by using a dynamic `basePath` variable in JavaScript to construct correct relative paths for all resources.
 
+Ensured consistent font loading and Content Security Policy across all pages by updating 'html/privacy.html' with Google Fonts preconnects, stylesheet, and a unified CSP.
+
 Updated `basePath` logic to differentiate between local development and any remote deployment, ensuring correct relative URLs across all environments.
 
 Addressed console log errors by:
@@ -170,3 +172,5 @@ Normalized borders for `.floating-topbar` (outer) and `.topbar-inner` (inner):
 - Adjusted `padding-top` of `.content-wrap` in `css/global-theme.css` to `56px` to prevent the floating top bar from overlapping content.
 - Increased `padding-top` of `.content-wrap` in `css/global-theme.css` to `72px` to create a visible gap between the floating top bar and the page content.
 - Removed `padding-top` from `.content-wrap` in `css/global-theme.css` and added `height: 72px;` to `floating-topbar-placeholder` in `index.html`, `projects/weather-card/index.html`, and `html/privacy.html` to ensure initial content visibility below the top bar.
+
+Ensured consistent font loading and Content Security Policy across all pages by updating 'html/privacy.html' with Google Fonts preconnects, stylesheet, and a unified CSP.
