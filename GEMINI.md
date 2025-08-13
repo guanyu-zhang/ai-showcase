@@ -173,4 +173,4 @@ Normalized borders for `.floating-topbar` (outer) and `.topbar-inner` (inner):
 - Increased `padding-top` of `.content-wrap` in `css/global-theme.css` to `72px` to create a visible gap between the floating top bar and the page content.
 - Removed `padding-top` from `.content-wrap` in `css/global-theme.css` and added `height: 72px;` to `floating-topbar-placeholder` in `index.html`, `projects/weather-card/index.html`, and `html/privacy.html` to ensure initial content visibility below the top bar.
 
-Ensured consistent font loading and Content Security Policy across all pages by updating 'html/privacy.html' with Google Fonts preconnects, stylesheet, and a unified CSP.
+Unified font loading and Content Security Policy by dynamically adding them via `js/main.js` and removing them from all HTML files (`index.html`, `html/privacy.html`, `projects/weather-card/index.html`, `projects/todo-list/index.html`).
