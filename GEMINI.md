@@ -176,3 +176,5 @@ Normalized borders for `.floating-topbar` (outer) and `.topbar-inner` (inner):
 Unified font loading and Content Security Policy by dynamically adding them via `js/main.js` and removing them from all HTML files (`index.html`, `html/privacy.html`, `projects/weather-card/index.html`, `projects/todo-list/index.html`).
 
 Fixed 404 error for privacy page by updating its link in `html/footer.html` to use `basePath` for correct absolute path resolution.
+
+Fixed `basePath` parsing issue for privacy page link by dynamically updating the `href` attribute in `main.js` after fetching `footer.html` content.

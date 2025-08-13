@@ -40,7 +40,17 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             const footerPlaceholder = document.getElementById('footer-placeholder');
             if (footerPlaceholder) {
-                footerPlaceholder.innerHTML = data;
+                // Create a temporary div to parse the HTML string
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = data;
+
+                // Find the privacy policy link and update its href
+                const privacyLink = tempDiv.querySelector('a[href="${basePath}/html/privacy.html"]');
+                if (privacyLink) {
+                    privacyLink.href = `${basePath}/html/privacy.html`;
+                }
+
+                footerPlaceholder.innerHTML = tempDiv.innerHTML;
 
                 // Dynamically load the CSS
                 const link = document.createElement('link');
