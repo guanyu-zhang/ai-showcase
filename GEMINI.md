@@ -184,3 +184,7 @@ Added styling to `html/privacy.html` using a new `css/privacy.css` file to impro
 Reverted `margin-bottom: 60px;` from `.content-wrap` in `css/global-theme.css`.
 - Added `margin-bottom: 60px;` to `.container` in `css/privacy.css` to create a gap between the privacy content and the footer.
 Committed "Style privacy.html with comprehensive CSS and improve readability".
+
+Improved privacy page container centering on mobile:
+- Reverted the specific `max-width` for `.container` within the `max-width: 520px` media query in `css/privacy.css`.
+- Removed `width: 100%;` from the global `.container` rule in `css/privacy.css` to allow `max-width` and `margin-inline: auto;` to correctly center the container on all screen sizes.

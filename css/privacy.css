@@ -35,7 +35,6 @@
   
   /* Card visual only: parent .content-wrap layout/width is handled globally */
   .container {
-    width: 100%;
     max-width: var(--pg-max-width);
     margin-inline: auto;
     background: var(--pg-bg);
