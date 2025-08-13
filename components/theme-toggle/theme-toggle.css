@@ -1,5 +1,5 @@
 .theme-switcher {
-    /* These properties are removed as the parent is a flex container */
+    margin-left: auto; /* guarantees it sits at the far right */
 }
 
 .switch {

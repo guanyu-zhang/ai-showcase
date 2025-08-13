@@ -75,7 +75,6 @@ Converted the floating top bar into a reusable component. This involved:
 - Creating `components/floating-topbar/floating-topbar.js` to dynamically load the HTML and CSS into a placeholder.
 - Replacing the existing floating top bar HTML in `index.html`, `projects/weather-card/index.html`, and `html/privacy.html` with a placeholder `div` (`<div id="floating-topbar-placeholder"></div>`).
 - Updating `js/main.js` to load the new `floating-topbar.js` component.
-
 - Removing the direct link to `floating-topbar.css` from `index.html`, `projects/weather-card/index.html`, and `html/privacy.html`.
 
 Fixed the issue where the floating top bar was not visible by removing the `.theme-toggle` styles from `components/floating-topbar/floating-topbar.css`. This ensures that the theme toggle's own CSS (`components/theme-toggle/theme-toggle.css`) is the sole source of truth for its styling, preventing conflicts and ensuring proper rendering within the top bar.
@@ -128,3 +127,13 @@ Addressed console log errors by:
 - Resolving `REPO` identifier re-declaration by removing redundant declarations from `components/theme-toggle/theme-toggle.js`.
 - Resolving CSP inline script error by externalizing the inline script in `projects/weather-card/index.html` to `projects/weather-card/script.js`.
 - Updating `Content-Security-Policy` in `index.html`, `html/privacy.html`, `projects/todo-list/index.html`, and `projects/weather-card/index.html` to include `script-src 'unsafe-inline'` to resolve remaining inline script CSP violations.
+
+Improved UI for widescreen displays and top bar alignment:
+- Widened the main content area by adjusting `max-width`, `margin-inline`, and `padding-inline` for `.content-wrap` in `css/global-theme.css`.
+- Adjusted `gap` and added `display: flex`, `flex-wrap`, and `justify-content` to `.project-list` in `css/global-theme.css` for better card layout.
+- Added `width` to `.project-list li` in `css/global-theme.css` for better card scaling.
+- Modified `.floating-topbar` in `components/floating-topbar/floating-topbar.css` to be fixed and full-width.
+- Updated `.topbar-inner` in `components/floating-topbar/floating-topbar.css` to control its own background, blur, radius, and shadow, and to use `space-between` for alignment.
+- Set `margin-left: 0;` for `.brand` in `components/floating-topbar/floating-topbar.css` to ensure it's flush-left.
+- Set `margin-left: auto;` for `.theme-switcher` in `components/theme-toggle/theme-toggle.css` to ensure it's flush-right.
+- Added a media query to `components/floating-topbar/floating-topbar.css` to increase top bar side padding on wide screens (≥1440px).
