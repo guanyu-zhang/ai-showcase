@@ -24,7 +24,7 @@
 
 .topbar-inner{
   width: 100%;
-  max-width: 92vw; /* Allow to shrink on mobile */
+  max-width: 90vw; /* Allow to shrink on mobile */
   height: 100%;
   display: flex;
   align-items: center;

@@ -141,6 +141,7 @@ Improved UI for widescreen displays and top bar alignment:
 Fixed mobile layout for floating top bar:
 - Modified `max-width` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` to `92vw` to allow it to shrink on mobile.
 - Added a media query for `min-width: 960px` to set `max-width: 1320px;` for `.topbar-inner` on larger screens.
+- Decreased `max-width` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` to `90vw` to increase the gap on mobile.
 
 Re-added 16px gap and rounded corners to the floating top bar:
 - Added `margin-top: 16px;` and `border-radius: 16px;` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`.
