@@ -110,3 +110,7 @@ Added `localStorage` persistence to the "Todo List" project, allowing tasks to b
 Adjusted the footer layout to center the columns as a group on wider screens, preventing them from stretching and leaving a large gap on the right.
 
 Fixed an invisible border issue on the "Todo List" project's input field by defining missing color variables (`--border-color`, `--input-bg-color`, etc.) in `css/global-theme.css`. Also added a theme-adaptive "glow" effect on focus to the input field for better visual feedback.
+
+Fixed 404 errors for `global-theme.css` and `main.js` on GitHub Pages by prepending `/ai-showcase` to their root-relative paths in `index.html`, `html/privacy.html`, `projects/todo-list/index.html`, and `projects/weather-card/index.html`.
+
+Fixed local development 404 errors by converting all asset paths (CSS and JS) in `index.html`, `html/privacy.html`, `projects/todo-list/index.html`, and `projects/weather-card/index.html` from absolute to relative paths. This ensures they work correctly in both local and GitHub Pages environments.
