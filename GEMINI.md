@@ -114,3 +114,5 @@ Fixed an invisible border issue on the "Todo List" project's input field by defi
 Fixed 404 errors for `global-theme.css` and `main.js` on GitHub Pages by prepending `/ai-showcase` to their root-relative paths in `index.html`, `html/privacy.html`, `projects/todo-list/index.html`, and `projects/weather-card/index.html`.
 
 Fixed local development 404 errors by converting all asset paths (CSS and JS) in `index.html`, `html/privacy.html`, `projects/todo-list/index.html`, and `projects/weather-card/index.html` from absolute to relative paths. This ensures they work correctly in both local and GitHub Pages environments.
+
+Fixed asset loading issues on GitHub Pages by using a dynamic `basePath` variable in JavaScript to construct correct relative paths for all resources.
