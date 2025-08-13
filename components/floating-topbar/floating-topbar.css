@@ -22,7 +22,7 @@
 
 .topbar-inner{
   width: 100%;
-  max-width: clamp(960px, 92vw, 1320px); /* slightly wider than before */
+  max-width: 92vw; /* Allow to shrink on mobile */
   height: 100%;
   display: flex;
   align-items: center;
@@ -59,6 +59,10 @@ body.dark-theme .brand {
 
 body.light-theme .brand {
     color: var(--topbar-text-light);
+}
+
+@media (min-width: 960px){
+  .topbar-inner { max-width: 1320px; }
 }
 
 @media (min-width: 1440px){
