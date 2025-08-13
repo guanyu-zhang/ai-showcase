@@ -1,0 +1,162 @@
+/* ============================
+   Privacy Page (visual only)
+   - Keep global .content-wrap layout/width
+   - Only handle card visuals and typography
+   - Compatible with light/dark themes
+   ============================ */
+
+/* Fallback variables (use global ones if defined) */
+:root {
+    --pg-max-width: 860px;
+    --pg-radius: 16px;
+    --pg-shadow: 0 6px 18px rgba(0,0,0,.06);
+    --pg-shadow-dark: 0 8px 24px rgba(0,0,0,.35);
+    --pg-pad: clamp(20px, 3.2vw, 36px);
+    --pg-gap: clamp(16px, 2.4vw, 24px);
+    --pg-hr: 1px solid;
+  
+    --pg-text: #333;
+    --pg-text-muted: #555;
+    --pg-border: rgba(0,0,0,.12);
+    --pg-bg: #fff;
+    --pg-link: var(--accent-color-light, #5b6dff);
+    --pg-link-hover: var(--accent-color-light, #4b59e6);
+  }
+  
+  /* Dark theme mapping */
+  .dark-theme {
+    --pg-text: #e6e6e6;
+    --pg-text-muted: #bdbdbd;
+    --pg-border: rgba(255,255,255,.14);
+    --pg-bg: rgba(30,30,30,.72);
+    --pg-link: var(--accent-color-dark, #9ab4ff);
+    --pg-link-hover: var(--accent-color-dark, #b5c6ff);
+  }
+  
+  /* Card visual only: parent .content-wrap layout/width is handled globally */
+  .container {
+    width: 100%;
+    max-width: var(--pg-max-width);
+    margin-inline: auto;
+    background: var(--pg-bg);
+    border: 1px solid var(--pg-border);
+    border-radius: var(--pg-radius);
+    box-shadow: var(--pg-shadow);
+    padding: var(--pg-pad);
+    color: var(--pg-text);
+    backdrop-filter: saturate(1.1) blur(2px);
+  }
+  .dark-theme .container { box-shadow: var(--pg-shadow-dark); }
+  
+  /* Headings and typography */
+  .container h1,
+  .container h2,
+  .container h3 {
+    color: var(--pg-text);
+    letter-spacing: .2px;
+  }
+  
+  .container h1 {
+    font-size: clamp(28px, 3.6vw, 36px);
+    line-height: 1.2;
+    margin: 4px 0 14px;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .container h2 {
+    font-size: clamp(20px, 2.2vw, 24px);
+    margin: 28px 0 10px;
+    line-height: 1.35;
+    font-weight: 650;
+    scroll-margin-top: 84px; /* Prevent floating topbar from covering anchor */
+  }
+  
+  .container p {
+    margin: 0 0 var(--pg-gap);
+    line-height: 1.75;
+    color: var(--pg-text-muted);
+    font-size: 16px;
+  }
+  
+  .container ul,
+  .container ol {
+    margin: 6px 0 var(--pg-gap) 0;
+    padding-left: 1.25em;
+    line-height: 1.75;
+    color: var(--pg-text-muted);
+  }
+  
+  .container li + li { margin-top: 6px; }
+  .container ul li::marker { color: var(--pg-link); font-weight: 600; }
+  
+  /* Links */
+  .container a {
+    color: var(--pg-link);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .container a:hover,
+  .container a:focus-visible {
+    color: var(--pg-link-hover);
+    border-color: currentColor;
+    outline: none;
+  }
+  
+  /* Horizontal rule, blockquote, inline code */
+  .container hr {
+    border: 0;
+    border-top: var(--pg-hr) var(--pg-border);
+    margin: 22px 0;
+  }
+  
+  .container blockquote {
+    margin: 12px 0 var(--pg-gap);
+    padding: 10px 14px;
+    border-left: 3px solid var(--pg-link);
+    background: color-mix(in srgb, var(--pg-link) 7%, transparent);
+    border-radius: 8px;
+    color: var(--pg-text);
+  }
+  
+  .container code {
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--pg-text) 10%, transparent);
+    border: 1px solid var(--pg-border);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .92em;
+  }
+  
+  /* First and last child spacing tweaks */
+  .container > p:first-of-type { margin-top: 6px; }
+  .container > *:last-child { margin-bottom: 0; }
+  
+  /* Small screen optimization */
+  @media (max-width: 520px) {
+    .container {
+      border-radius: 14px;
+      padding: clamp(16px, 4vw, 22px);
+    }
+    .container h1 { font-size: clamp(24px, 6vw, 30px); }
+    .container h2 { margin-top: 22px; }
+  }
+  
+  /* Print styles */
+  @media print {
+    body { background: #fff !important; }
+    .container {
+      box-shadow: none;
+      border: 1px solid #ddd;
+      background: #fff;
+    }
+    a { color: #0645ad; text-decoration: underline; }
+  }
+  
+  /* Accessibility: keyboard focus */
+  .container :where(a, button, [tabindex]):focus-visible {
+    outline: 2px solid var(--pg-link);
+    outline-offset: 2px;
+  }
+  
