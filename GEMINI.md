@@ -75,7 +75,6 @@ Converted the floating top bar into a reusable component. This involved:
 - Creating `components/floating-topbar/floating-topbar.js` to dynamically load the HTML and CSS into a placeholder.
 - Replacing the existing floating top bar HTML in `index.html`, `projects/weather-card/index.html`, and `html/privacy.html` with a placeholder `div` (`<div id="floating-topbar-placeholder"></div>`).
 - Updating `js/main.js` to load the new `floating-topbar.js` component.
-- Removing the direct link to `floating-topbar.css` from `index.html`, `projects/weather-card/index.html`, and `html/privacy.html`.
 
 Fixed the issue where the floating top bar was not visible by removing the `.theme-toggle` styles from `components/floating-topbar/floating-topbar.css`. This ensures that the theme toggle's own CSS (`components/theme-toggle/theme-toggle.css`) is the sole source of truth for its styling, preventing conflicts and ensuring proper rendering within the top bar.
 
@@ -146,3 +145,7 @@ Fixed mobile layout for floating top bar:
 
 Re-added 16px gap and rounded corners to the floating top bar:
 - Added `margin-top: 16px;` and `border-radius: 16px;` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`.
+
+Improved the shadow effect of the floating top bar in dark mode:
+- Added a new CSS variable `--topbar-shadow-dark` to `css/global-theme.css` with a purple shadow color (`rgba(180, 120, 255, 0.7)`) and the same shadow properties as the light theme.
+- Applied `--topbar-shadow-dark` to the `box-shadow` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` when `body.dark-theme` is active.

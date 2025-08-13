@@ -41,6 +41,10 @@
   border-bottom: var(--topbar-border-light);
 }
 
+body.dark-theme .topbar-inner {
+    box-shadow: var(--topbar-shadow-dark);
+}
+
 .brand{
   font-weight: 700;
   letter-spacing: 0.2px;
