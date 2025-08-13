@@ -130,7 +130,7 @@ Addressed console log errors by:
 - Updating `Content-Security-Policy` in `index.html`, `html/privacy.html`, `projects/todo-list/index.html`, and `projects/weather-card/index.html` to include `script-src 'unsafe-inline'` to resolve remaining inline script CSP violations.
 
 Improved UI for widescreen displays and top bar alignment:
-- Widened the main content area by adjusting `max-width`, `margin-inline`, and `padding-inline` for `.content-wrap` in `css/global-theme.css`.
+- Widened the main content area by adjusting `max-width`, `margin-inline`, and `padding-inline` for `.content-wrap` in `css/global-theme.css`. The `margin-bottom: 60px;` previously added to `.content-wrap` has been reverted.
 - Adjusted `gap` and added `display: flex`, `flex-wrap`, and `justify-content` to `.project-list` in `css/global-theme.css` for better card layout.
 - Added `width` to `.project-list li` in `css/global-theme.css` for better card scaling.
 - Modified `.floating-topbar` in `components/floating-topbar/floating-topbar.css` to be fixed and full-width.
@@ -179,6 +179,8 @@ Fixed 404 error for privacy page by updating its link in `html/footer.html` to u
 
 Fixed `basePath` parsing issue for privacy page link by dynamically updating the `href` attribute in `main.js` after fetching `footer.html` content.
 
-Added styling to `html/privacy.html` using a new `css/privacy.css` file to improve its visual appeal and formality.
+Added styling to `html/privacy.html` using a new `css/privacy.css` file to improve its visual appeal and formality. A `margin-bottom: 60px;` has been added to the `.container` class within `css/privacy.css` to create a gap with the footer.
 
+Reverted `margin-bottom: 60px;` from `.content-wrap` in `css/global-theme.css`.
+- Added `margin-bottom: 60px;` to `.container` in `css/privacy.css` to create a gap between the privacy content and the footer.
 Committed "Style privacy.html with comprehensive CSS and improve readability".

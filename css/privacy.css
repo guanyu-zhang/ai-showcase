@@ -45,6 +45,7 @@
     padding: var(--pg-pad);
     color: var(--pg-text);
     backdrop-filter: saturate(1.1) blur(2px);
+    margin-bottom: 60px;
   }
   .dark-theme .container { box-shadow: var(--pg-shadow-dark); }
   
