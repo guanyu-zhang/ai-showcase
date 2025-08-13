@@ -9,6 +9,7 @@
     --icon-color-dark: #aaa;
     --topbar-bg-dark: rgba(30, 30, 30, 0.9); /* Slightly more transparent */
     --topbar-text-dark: #f0f0f0;
+    --topbar-border-dark: 1px solid rgba(128, 0, 128, 0.5); /* Thin purple border for dark theme */
 
     --bg-color-light: #f5f5f5;
     --text-color-light: #333333;
@@ -20,6 +21,7 @@
     --icon-color-light: #555;
     --topbar-bg-light: rgba(240, 240, 240, 0.9); /* Slightly more transparent */
     --topbar-text-light: #333333;
+    --topbar-border-light: 1px solid rgba(0, 0, 0, 0.1); /* Thin gray border for light theme */
 
     --topbar-blur: 2px; /* Very slight blur */
     --topbar-margin: 16px; /* New margin for topbar */

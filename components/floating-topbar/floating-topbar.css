@@ -38,6 +38,7 @@
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   box-shadow: var(--topbar-shadow);
+  border-bottom: var(--topbar-border-light);
 }
 
 .brand{
@@ -53,6 +54,14 @@ body.dark-theme .floating-topbar {
 
 body.light-theme .floating-topbar {
     background: var(--topbar-bg-light);
+}
+
+body.dark-theme .topbar-inner {
+    border-bottom: var(--topbar-border-dark);
+}
+
+body.light-theme .topbar-inner {
+    border-bottom: var(--topbar-border-light);
 }
 
 body.dark-theme .brand {

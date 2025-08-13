@@ -137,6 +137,7 @@ Improved UI for widescreen displays and top bar alignment:
 - Set `margin-left: 0;` for `.brand` in `components/floating-topbar/floating-topbar.css` to ensure it's flush-left.
 - Set `margin-left: auto;` for `.theme-switcher` in `components/theme-toggle/theme-toggle.css` to ensure it's flush-right.
 - Added a media query to `components/floating-topbar/floating-topbar.css` to increase top bar side padding on wide screens (≥1440px).
+- Added a thin purple borderline shade to the floating top bar in dark theme, and a subtle gray shade in light theme, by defining `--topbar-border-dark` and `--topbar-border-light` in `css/global-theme.css` and applying them as `border-bottom` to `.topbar-inner` in `components/floating-topbar/floating-topbar.css`.
 
 Fixed mobile layout for floating top bar:
 - Modified `max-width` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` to `92vw` to allow it to shrink on mobile.
