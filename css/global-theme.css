@@ -10,7 +10,7 @@
     --topbar-bg-dark: rgba(30, 30, 30, 0.9); /* Slightly more transparent */
     --topbar-text-dark: #f0f0f0;
     --topbar-border-dark: 1px solid rgba(128, 0, 128, 0.5); /* Thin purple border for dark theme */
-    --topbar-shadow-dark: 0 10px 24px rgba(180, 120, 255, 0.7); /* Purple shadow for dark theme */
+    --topbar-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.4); /* Softer dark shadow for dark theme */
 
     --bg-color-light: #f5f5f5;
     --text-color-light: #333333;
