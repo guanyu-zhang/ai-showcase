@@ -96,7 +96,7 @@ Reintroduced a subtle frosted glass effect to the floating top bar. This was ach
 
 Slightly increased the transparency of the floating top bar by changing the alpha value of `--topbar-bg-dark` and `--topbar-bg-light` in `css/global-theme.css` from `0.95` to `0.9`.
 
-Added a `16px` gap between the top of the page and the floating top bar, and rounded the top two corners of the top bar to `16px` by modifying `components/floating-topbar/floating-topbar.css`. Also, adjusted the `padding-top` of the main content (`.content-wrap`) in `index.html`, `projects/weather-card/index.html`, and `html/privacy.html` to account for the new top margin by introducing a new CSS variable `--topbar-total-offset` in `css/global-theme.css`.
+Added a `16px` gap between the top of the page and the floating top bar, and rounded the top two corners of the top bar to `16px` by modifying `components/floating-topbar/floating-topbar.css`. Also, adjusted the `padding-top` of the main content (`.content-wrap`) in `index.html` and `projects/weather-card/index.html` to account for the new top margin by introducing a new CSS variable `--topbar-total-offset` in `css/global-theme.css`.
 
 Fixed a layout bug where the theme toggle was incorrectly positioned due to a redundant `position: fixed` style. By removing this, the toggle now correctly aligns within the flexbox layout of the floating top bar.
 
@@ -191,3 +191,7 @@ Improved privacy page container centering on mobile:
 
 Fixed todo list container centering on narrow screens:
 - Removed `padding: 20px;` from the `body` in `css/global-theme.css` to prevent it from interfering with the centering of the `.content-wrap` and its children on narrow screens.
+
+Updated todo list container styling based on user's revert and preference:
+- Reverted `max-width` to `600px` and removed `min-height: 60vh` from `.todo-container` in `projects/todo-list/style.css`.
+- Retained `margin: 0 auto;` for `.todo-container` in `projects/todo-list/style.css` to ensure proper centering and prevent overlap with the floating top bar.
