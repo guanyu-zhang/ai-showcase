@@ -37,6 +37,7 @@ body {
   max-width: clamp(960px, 86vw, 1280px); /* a touch wider for desktop */
   margin-inline: auto;
   padding-inline: clamp(16px, 3vw, 32px);
+  padding-top: 56px; /* Offset for fixed floating top bar */
 }
 
 body.dark-theme {

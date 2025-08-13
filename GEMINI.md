@@ -166,3 +166,5 @@ Normalized borders for `.floating-topbar` (outer) and `.topbar-inner` (inner):
 - In light mode, `.topbar-inner` has a single subtle border (`1px solid rgba(0,0,0,0.08)`) and a soft elevation shadow (`0 6px 14px rgba(0,0,0,0.08)`).
 - In dark mode, `.topbar-inner` has a crisp purple stroke (`0 0 0 1px #7C3AED`), an elevation shadow (`0 10px 24px rgba(0,0,0,0.35)`), and a subtle purple glow (`0 0 24px rgba(124,58,237,0.25)`).
 - Removed redundant topbar-related CSS variables from `css/global-theme.css` as their values are now directly defined in `components/floating-topbar/floating-topbar.css`.
+
+- Adjusted `padding-top` of `.content-wrap` in `css/global-theme.css` to `56px` to prevent the floating top bar from overlapping content.
