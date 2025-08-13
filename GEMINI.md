@@ -180,3 +180,5 @@ Fixed 404 error for privacy page by updating its link in `html/footer.html` to u
 Fixed `basePath` parsing issue for privacy page link by dynamically updating the `href` attribute in `main.js` after fetching `footer.html` content.
 
 Added styling to `html/privacy.html` using a new `css/privacy.css` file to improve its visual appeal and formality.
+
+Committed "Style privacy.html with comprehensive CSS and improve readability".
