@@ -168,3 +168,4 @@ Normalized borders for `.floating-topbar` (outer) and `.topbar-inner` (inner):
 - Removed redundant topbar-related CSS variables from `css/global-theme.css` as their values are now directly defined in `components/floating-topbar/floating-topbar.css`.
 
 - Adjusted `padding-top` of `.content-wrap` in `css/global-theme.css` to `56px` to prevent the floating top bar from overlapping content.
+- Increased `padding-top` of `.content-wrap` in `css/global-theme.css` to `72px` to create a visible gap between the floating top bar and the page content.
