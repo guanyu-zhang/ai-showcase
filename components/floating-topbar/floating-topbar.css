@@ -19,6 +19,8 @@
   border-radius: 16px;
   width: 100%; /* Ensure it takes full width up to max-width */
   max-width: var(--floating-topbar-max-width-mobile);
+  backdrop-filter: saturate(160%) blur(var(--topbar-blur));
+  -webkit-backdrop-filter: saturate(160%) blur(var(--topbar-blur)); /* iOS */
 }
 
 @media (min-width: 960px){
@@ -41,12 +43,7 @@
   justify-content: space-between;       /* brand left, toggle right */
   padding-inline: clamp(14px, 3vw, 28px);
   background: var(--topbar-bg);
-  backdrop-filter: saturate(160%) blur(var(--topbar-blur));
-  -webkit-backdrop-filter: saturate(160%) blur(var(--topbar-blur)); /* iOS */
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  border-radius: 16px; /* Match parent for consistent rounding */
   box-shadow: var(--topbar-shadow);
   border-bottom: var(--topbar-border-light);
 }
