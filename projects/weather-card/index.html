@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animated Weather Cards</title>
     <link rel="stylesheet" href="style.css">
@@ -48,27 +48,7 @@
 
     <script src="../../js/main.js"></script>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const rainyCard = document.querySelector('.rainy');
-            for (let i = 0; i < 50; i++) {
-                const raindrop = document.createElement('div');
-                raindrop.className = 'raindrop';
-                raindrop.style.left = Math.random() * 200 + 'px';
-                raindrop.style.animationDelay = Math.random() * -2 + 's';
-                rainyCard.appendChild(raindrop);
-            }
-
-            const snowyCard = document.querySelector('.snowy');
-            for (let i = 0; i < 50; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                snowflake.style.left = Math.random() * 200 + 'px';
-                snowflake.style.animationDelay = Math.random() * -10 + 's';
-                snowyCard.appendChild(snowflake);
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>

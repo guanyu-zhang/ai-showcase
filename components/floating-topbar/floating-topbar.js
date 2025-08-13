@@ -1,6 +1,4 @@
-const isGhPages = location.hostname.endsWith('github.io');
-const REPO = 'ai-showcase';
-const basePath = isGhPages ? `/${REPO}` : '';
+
 
 console.log('floating-topbar.js: Script started.');
 const placeholder = document.getElementById('floating-topbar-placeholder');

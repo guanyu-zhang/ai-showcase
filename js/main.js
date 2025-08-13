@@ -1,6 +1,6 @@
-const isGhPages = location.hostname.endsWith('github.io');
 const REPO = 'ai-showcase';
-const basePath = isGhPages ? `/${REPO}` : '';
+const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+const basePath = isLocal ? '' : `/${REPO}`;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Load Footer Component
@@ -27,4 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
     topbarScript.onload = () => console.log('main.js: floating-topbar.js loaded.');
     topbarScript.onerror = () => console.error('main.js: floating-topbar.js failed to load.');
     document.body.appendChild(topbarScript);
+
+    // Add event listeners for project buttons
+    document.querySelectorAll('.view-project-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const projectPath = this.dataset.projectPath;
+            if (projectPath) {
+                window.location.href = `${basePath}/${projectPath}`;
+            }
+        });
+    });
 });

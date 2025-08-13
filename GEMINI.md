@@ -75,6 +75,7 @@ Converted the floating top bar into a reusable component. This involved:
 - Creating `components/floating-topbar/floating-topbar.js` to dynamically load the HTML and CSS into a placeholder.
 - Replacing the existing floating top bar HTML in `index.html`, `projects/weather-card/index.html`, and `html/privacy.html` with a placeholder `div` (`<div id="floating-topbar-placeholder"></div>`).
 - Updating `js/main.js` to load the new `floating-topbar.js` component.
+
 - Removing the direct link to `floating-topbar.css` from `index.html`, `projects/weather-card/index.html`, and `html/privacy.html`.
 
 Fixed the issue where the floating top bar was not visible by removing the `.theme-toggle` styles from `components/floating-topbar/floating-topbar.css`. This ensures that the theme toggle's own CSS (`components/theme-toggle/theme-toggle.css`) is the sole source of truth for its styling, preventing conflicts and ensuring proper rendering within the top bar.
@@ -116,3 +117,14 @@ Fixed 404 errors for `global-theme.css` and `main.js` on GitHub Pages by prepend
 Fixed local development 404 errors by converting all asset paths (CSS and JS) in `index.html`, `html/privacy.html`, `projects/todo-list/index.html`, and `projects/weather-card/index.html` from absolute to relative paths. This ensures they work correctly in both local and GitHub Pages environments.
 
 Fixed asset loading issues on GitHub Pages by using a dynamic `basePath` variable in JavaScript to construct correct relative paths for all resources.
+
+Updated `basePath` logic to differentiate between local development and any remote deployment, ensuring correct relative URLs across all environments.
+
+Addressed console log errors by:
+- Updating `Content-Security-Policy` in `index.html` to allow Google Fonts.
+- Removing inline `onclick` attributes and an empty script tag from `index.html`.
+- Moving navigation logic for project buttons to `js/main.js`.
+- Resolving `REPO` identifier re-declaration by removing redundant declarations from `components/floating-topbar/floating-topbar.js` and ensuring it uses the `basePath` defined in `js/main.js`.
+- Resolving `REPO` identifier re-declaration by removing redundant declarations from `components/theme-toggle/theme-toggle.js`.
+- Resolving CSP inline script error by externalizing the inline script in `projects/weather-card/index.html` to `projects/weather-card/script.js`.
+- Updating `Content-Security-Policy` in `index.html`, `html/privacy.html`, `projects/todo-list/index.html`, and `projects/weather-card/index.html` to include `script-src 'unsafe-inline'` to resolve remaining inline script CSP violations.

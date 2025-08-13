@@ -1,7 +1,3 @@
-const isGhPages = location.hostname.endsWith('github.io');
-const REPO = 'ai-showcase';
-const basePath = isGhPages ? `/${REPO}` : '';
-
 console.log('theme-toggle.js: Script started.');
 fetch(`${basePath}/components/theme-toggle/theme-toggle.html`)
     .then(response => response.text())

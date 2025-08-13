@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'">
+        content="default-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibe Coding Showcase</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,14 @@
                 <details>
                     <summary>Weather Card</summary>
                     <p>An animated weather card that displays different weather conditions. The card should visually represent the following weather conditions with distinct animations: Wind, Rain, Sun, and Snow. The card has a dark background and the JavaScript includes a way to switch between the different weather conditions to demonstrate the animations for each.</p>
-                    <button class="view-project-btn" onclick="window.location.href='projects/weather-card/index.html';">View Project</button>
+                    <button class="view-project-btn" data-project-path="projects/weather-card/index.html">View Project</button>
                 </details>
             </li>
             <li>
                 <details>
                     <summary>Todo List</summary>
                     <p>A simple and clean todo list application. Users can add new tasks, mark them as complete, and delete them. The interface is designed to be intuitive and responsive, adapting to different screen sizes.</p>
-                    <button class="view-project-btn" onclick="window.location.href='projects/todo-list/index.html';">View Project</button>
+                    <button class="view-project-btn" data-project-path="projects/todo-list/index.html">View Project</button>
                 </details>
             </li>
         </ul>
@@ -38,8 +38,6 @@
 
     <script src="js/main.js"></script>
     
-    <script>
-        
-    </script>
+    
 </body>
 </html>
