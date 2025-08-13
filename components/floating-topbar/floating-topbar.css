@@ -8,7 +8,9 @@
 
 .floating-topbar{
   position: fixed;
-  inset: 0 0 auto 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   height: 56px; /* or your current */
   z-index: 1000;
   display: grid;
