@@ -30,7 +30,7 @@ Modularized the footer's CSS into a separate `footer.css` file and linked it in 
 
 Fixed the GitHub logo alignment in the footer on mobile by adding `justify-content: center;` to the `.social-icons` class in `footer.css`.
 
-Created a reusable theme toggle component by extracting its HTML, CSS, and JavaScript into `components/theme-toggle/theme-toggle.html`, `theme-toggle.css`, and `theme-toggle.js` respectively.
+Created a reusable theme toggle component by extracting its HTML, CSS, and JavaScript into `components/theme-toggle/theme-toggle.html`, `theme-toggle.css` and `theme-toggle.js` respectively.
 
 Organized the 'Weather Card' project into a subdirectory `projects/weather-card/` and moved `weather-card.html` to `projects/weather-card/index.html`.
 
@@ -141,3 +141,6 @@ Improved UI for widescreen displays and top bar alignment:
 Fixed mobile layout for floating top bar:
 - Modified `max-width` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` to `92vw` to allow it to shrink on mobile.
 - Added a media query for `min-width: 960px` to set `max-width: 1320px;` for `.topbar-inner` on larger screens.
+
+Re-added 16px gap and rounded corners to the floating top bar:
+- Added `margin-top: 16px;` and `border-radius: 16px;` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`.

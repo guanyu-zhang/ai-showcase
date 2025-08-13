@@ -13,6 +13,8 @@
   z-index: 1000;
   display: grid;
   place-items: center;
+  margin-top: 16px;
+  border-radius: 16px;
 }
 
 /* Fallback when blur unsupported */
