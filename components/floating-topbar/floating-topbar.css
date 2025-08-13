@@ -67,7 +67,7 @@ body.dark-theme .floating-topbar {
 body.light-theme .floating-topbar {
     background: var(--topbar-bg-light);
     border: var(--topbar-border-light); /* Add this */
-    box-shadow: var(--topbar-shadow-light); /* Add light shadow */
+    box-shadow: var(--topbar-shadow-light);
 }
 
 body.dark-theme .brand {

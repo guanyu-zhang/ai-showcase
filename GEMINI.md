@@ -154,3 +154,8 @@ Improved the shadow effect of the floating top bar in dark mode:
 - Refined the shadow effect of the floating top bar in dark mode by changing `--topbar-shadow-dark` in `css/global-theme.css` to a softer, less overpowering black shadow (`0 4px 12px rgba(0, 0, 0, 0.4)`).
 - Fixed blurred and invisible top bar borders by moving the `backdrop-filter` from `.topbar-inner` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`, ensuring the border remains sharp.
 - Enhanced the purple border of the floating top bar in dark mode to fully wrap around the top bar with a consistent thickness, high saturation, and a subtle glow gradient, improving visibility and reinforcing brand color.
+
+Refined floating top bar styling for light and dark modes:
+- In light mode, removed extra border and drop-shadow layers, implementing a clean, subtle 1px solid rgba(0,0,0,0.08) border and a soft 0 2px 10px rgba(0,0,0,0.06) box-shadow for elevation, ensuring a flat and airy minimalist aesthetic.
+- In dark mode, maintained the single purple border and subtle glow gradient, with updated values for --topbar-border-dark (1px solid #7C3AED), --topbar-shadow-dark (0 8px 24px rgba(0,0,0,0.35)), and --topbar-glow-dark (0 0 24px rgba(124,58,237,0.25)).
+- Ensured styling is conditional by theme, with the purple border/glow appearing only in dark mode.
