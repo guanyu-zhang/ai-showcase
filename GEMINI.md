@@ -174,3 +174,5 @@ Normalized borders for `.floating-topbar` (outer) and `.topbar-inner` (inner):
 - Removed `padding-top` from `.content-wrap` in `css/global-theme.css` and added `height: 72px;` to `floating-topbar-placeholder` in `index.html`, `projects/weather-card/index.html`, and `html/privacy.html` to ensure initial content visibility below the top bar.
 
 Unified font loading and Content Security Policy by dynamically adding them via `js/main.js` and removing them from all HTML files (`index.html`, `html/privacy.html`, `projects/weather-card/index.html`, `projects/todo-list/index.html`).
+
+Fixed 404 error for privacy page by updating its link in `html/footer.html` to use `basePath` for correct absolute path resolution.
