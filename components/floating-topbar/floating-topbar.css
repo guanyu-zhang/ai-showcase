@@ -45,7 +45,6 @@
   background: var(--topbar-bg);
   border-radius: 16px; /* Match parent for consistent rounding */
   box-shadow: var(--topbar-shadow);
-  border-bottom: var(--topbar-border-light);
 }
 
 body.dark-theme .topbar-inner {
@@ -61,18 +60,14 @@ body.dark-theme .topbar-inner {
 
 body.dark-theme .floating-topbar {
     background: var(--topbar-bg-dark);
+    border: var(--topbar-border-dark); /* Add this */
+    box-shadow: var(--topbar-shadow-dark), var(--topbar-glow-dark); /* Add glow shadow */
 }
 
 body.light-theme .floating-topbar {
     background: var(--topbar-bg-light);
-}
-
-body.dark-theme .topbar-inner {
-    border-bottom: var(--topbar-border-dark);
-}
-
-body.light-theme .topbar-inner {
-    border-bottom: var(--topbar-border-light);
+    border: var(--topbar-border-light); /* Add this */
+    box-shadow: var(--topbar-shadow-light); /* Add light shadow */
 }
 
 body.dark-theme .brand {

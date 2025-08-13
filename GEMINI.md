@@ -153,3 +153,4 @@ Improved the shadow effect of the floating top bar in dark mode:
 - Fixed the floating top bar not being centered by applying `left: 50%; transform: translateX(-50%);` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`.
 - Refined the shadow effect of the floating top bar in dark mode by changing `--topbar-shadow-dark` in `css/global-theme.css` to a softer, less overpowering black shadow (`0 4px 12px rgba(0, 0, 0, 0.4)`).
 - Fixed blurred and invisible top bar borders by moving the `backdrop-filter` from `.topbar-inner` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`, ensuring the border remains sharp.
+- Enhanced the purple border of the floating top bar in dark mode to fully wrap around the top bar with a consistent thickness, high saturation, and a subtle glow gradient, improving visibility and reinforcing brand color.
