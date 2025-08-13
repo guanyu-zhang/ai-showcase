@@ -27,6 +27,12 @@
     --topbar-blur: 2px; /* Very slight blur */
     --topbar-margin: 16px; /* New margin for topbar */
     --topbar-total-offset: calc(var(--topbar-height) + var(--topbar-margin) + env(safe-area-inset-top, 0px));
+
+    /* Topbar width variables */
+    --topbar-inner-max-width-mobile: 90vw;
+    --topbar-inner-max-width-desktop: 1320px;
+    --floating-topbar-max-width-mobile: calc(var(--topbar-inner-max-width-mobile) + 40px);
+    --floating-topbar-max-width-desktop: calc(var(--topbar-inner-max-width-desktop) + 40px);
 }
 
 body {
