@@ -159,3 +159,10 @@ Refined floating top bar styling for light and dark modes:
 - In light mode, removed extra border and drop-shadow layers, implementing a clean, subtle 1px solid rgba(0,0,0,0.08) border and a soft 0 2px 10px rgba(0,0,0,0.06) box-shadow for elevation, ensuring a flat and airy minimalist aesthetic.
 - In dark mode, maintained the single purple border and subtle glow gradient, with updated values for --topbar-border-dark (1px solid #7C3AED), --topbar-shadow-dark (0 8px 24px rgba(0,0,0,0.35)), and --topbar-glow-dark (0 0 24px rgba(124,58,237,0.25)).
 - Ensured styling is conditional by theme, with the purple border/glow appearing only in dark mode.
+
+Normalized borders for `.floating-topbar` (outer) and `.topbar-inner` (inner):
+- The outer `.floating-topbar` now has no border, outline, shadow, filter, or background, acting purely as a positioning wrapper.
+- All visual styling (border, shadow, glow) is now applied exclusively to the inner `.topbar-inner` element.
+- In light mode, `.topbar-inner` has a single subtle border (`1px solid rgba(0,0,0,0.08)`) and a soft elevation shadow (`0 6px 14px rgba(0,0,0,0.08)`).
+- In dark mode, `.topbar-inner` has a crisp purple stroke (`0 0 0 1px #7C3AED`), an elevation shadow (`0 10px 24px rgba(0,0,0,0.35)`), and a subtle purple glow (`0 0 24px rgba(124,58,237,0.25)`).
+- Removed redundant topbar-related CSS variables from `css/global-theme.css` as their values are now directly defined in `components/floating-topbar/floating-topbar.css`.

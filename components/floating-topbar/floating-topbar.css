@@ -1,87 +1,53 @@
-
-:root{
-  --topbar-shadow: 0 10px 24px rgba(0,0,0,0.18);
-  --topbar-height: 56px;                          /* adjust to taste */
-  --content-max: 1100px;                          /* inner width */
-  --pad-x: clamp(14px, 3vw, 24px);
+/* === Base (both themes) ======================================= */
+.floating-topbar {
+  position: fixed; inset: 0 0 auto 0; height: 56px;
+  z-index: 1000; display: grid; place-items: center;
+  /* wrapper must be visually neutral */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  background: transparent !important; /* avoid inner/outer stacking */
 }
 
-.floating-topbar{
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 56px; /* or your current */
-  z-index: 1000;
-  display: grid;
-  place-items: center;
-  margin-top: 16px;
-  border-radius: 16px;
-  width: 100%; /* Ensure it takes full width up to max-width */
-  max-width: var(--floating-topbar-max-width-mobile);
-  backdrop-filter: saturate(160%) blur(var(--topbar-blur));
-  -webkit-backdrop-filter: saturate(160%) blur(var(--topbar-blur)); /* iOS */
-}
+.floating-topbar::before,
+.floating-topbar::after { content: none !important; }
 
-@media (min-width: 960px){
-  .floating-topbar {
-    max-width: var(--floating-topbar-max-width-desktop);
-  }
-}
-
-/* Fallback when blur unsupported */
- @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
-  .floating-topbar{ background: rgba(16,16,20,0.85); }
-}
-
-.topbar-inner{
-  width: 100%;
-  max-width: var(--topbar-inner-max-width-mobile); /* Allow to shrink on mobile */
+.floating-topbar .topbar-inner {
+  width: min(100% - 32px, 1280px);
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;       /* brand left, toggle right */
+  display: flex; align-items: center; justify-content: space-between;
   padding-inline: clamp(14px, 3vw, 28px);
-  background: var(--topbar-bg);
-  border-radius: 16px; /* Match parent for consistent rounding */
-  box-shadow: var(--topbar-shadow);
+  border-radius: 14px;
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+  outline: none; /* prevent hairline doubles */
 }
 
-body.dark-theme .topbar-inner {
-    box-shadow: var(--topbar-shadow-dark);
+/* === Light mode: ONE edge + ONE soft shadow =================== */
+body.light-theme .topbar-inner,
+[data-theme="light"] .topbar-inner {
+  background: rgba(255,255,255,0.86);
+  border: 1px solid rgba(0,0,0,0.08);        /* or set to 'none' if you prefer no edge */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);   /* single soft elevation */
 }
 
-.brand{
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  text-decoration: none;
-  margin-left: 0;    /* avoid extra auto margins */
+/* If you prefer NO border in light mode, use this instead:
+body.light-theme .topbar-inner,
+[data-theme="light"] .topbar-inner {
+  background: rgba(255,255,255,0.90);
+  border: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
 }
+*/
 
-body.dark-theme .floating-topbar {
-    background: var(--topbar-bg-dark);
-    border: var(--topbar-border-dark); /* Add this */
-    box-shadow: var(--topbar-shadow-dark), var(--topbar-glow-dark); /* Add glow shadow */
-}
-
-body.light-theme .floating-topbar {
-    background: var(--topbar-bg-light);
-    border: var(--topbar-border-light); /* Add this */
-    box-shadow: var(--topbar-shadow-light);
-}
-
-body.dark-theme .brand {
-    color: var(--topbar-text-dark);
-}
-
-body.light-theme .brand {
-    color: var(--topbar-text-light);
-}
-
-@media (min-width: 960px){
-  .topbar-inner { max-width: var(--topbar-inner-max-width-desktop); }
-}
-
-@media (min-width: 1440px){
-  .topbar-inner { padding-inline: 36px; }
+/* === Dark mode: single purple wrap + glow on INNER only ======= */
+body.dark-theme .topbar-inner,
+[data-theme="dark"] .topbar-inner {
+  background: rgba(18,18,20,0.60);
+  border: none;                                   /* stroke handled by box-shadow */
+  box-shadow:
+    0 0 0 1px #7C3AED,                            /* crisp purple stroke wrapping the bar */
+    0 10px 24px rgba(0,0,0,0.35),                 /* elevation */
+    0 0 24px rgba(124,58,237,0.25);               /* subtle purple glow */
 }

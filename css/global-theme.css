@@ -7,11 +7,7 @@
     --input-bg-color-dark: #222;
     --text-color-muted-dark: #888;
     --icon-color-dark: #aaa;
-    --topbar-bg-dark: rgba(30, 30, 30, 0.9); /* Slightly more transparent */
-    --topbar-text-dark: #f0f0f0;
-    --topbar-border-dark: 1px solid #7C3AED;
-    --topbar-shadow-dark: 0 8px 24px rgba(0,0,0,0.35);
-    --topbar-glow-dark: 0 0 24px rgba(124,58,237,0.25);
+    
 
     --bg-color-light: #f5f5f5;
     --text-color-light: #333333;
@@ -21,20 +17,9 @@
     --input-bg-color-light: #fff;
     --text-color-muted-light: #888;
     --icon-color-light: #555;
-    --topbar-bg-light: rgba(240, 240, 240, 0.9); /* Slightly more transparent */
-    --topbar-text-light: #333333;
-    --topbar-border-light: 1px solid rgba(0,0,0,0.08);
-    --topbar-shadow-light: 0 2px 10px rgba(0,0,0,0.06);
+    
 
-    --topbar-blur: 2px; /* Very slight blur */
-    --topbar-margin: 16px; /* New margin for topbar */
-    --topbar-total-offset: calc(var(--topbar-height) + var(--topbar-margin) + env(safe-area-inset-top, 0px));
-
-    /* Topbar width variables */
-    --topbar-inner-max-width-mobile: 90vw;
-    --topbar-inner-max-width-desktop: 1320px;
-    --floating-topbar-max-width-mobile: calc(var(--topbar-inner-max-width-mobile) + 40px);
-    --floating-topbar-max-width-desktop: calc(var(--topbar-inner-max-width-desktop) + 40px);
+    
 }
 
 body {
