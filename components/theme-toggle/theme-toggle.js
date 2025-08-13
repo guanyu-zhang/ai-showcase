@@ -1,5 +1,9 @@
+const isGhPages = location.hostname.endsWith('github.io');
+const REPO = 'ai-showcase';
+const basePath = isGhPages ? `/${REPO}` : '';
+
 console.log('theme-toggle.js: Script started.');
-fetch('/components/theme-toggle/theme-toggle.html')
+fetch(`${basePath}/components/theme-toggle/theme-toggle.html`)
     .then(response => response.text())
     .then(data => {
         const themeTogglePlaceholder = document.getElementById('theme-toggle-placeholder');
@@ -11,7 +15,7 @@ fetch('/components/theme-toggle/theme-toggle.html')
             // Dynamically load the CSS
             const link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.href = '/components/theme-toggle/theme-toggle.css';
+            link.href = `${basePath}/components/theme-toggle/theme-toggle.css`;
             link.onload = () => console.log('theme-toggle.js: CSS loaded.');
             link.onerror = () => console.error('theme-toggle.js: CSS failed to load.');
             document.head.appendChild(link);

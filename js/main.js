@@ -1,3 +1,7 @@
+const isGhPages = location.hostname.endsWith('github.io');
+const REPO = 'ai-showcase';
+const basePath = isGhPages ? `/${REPO}` : '';
+
 document.addEventListener('DOMContentLoaded', function() {
     // Load Footer Component
     fetch(`${basePath}/html/footer.html`)
