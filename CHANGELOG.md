@@ -1,3 +1,5 @@
+Replaced hardcoded placeholder height with a dynamic JavaScript solution. The `floating-topbar.js` component now calculates the actual height of the top bar after it renders and applies that height to the placeholder `div`. This removes the need for inline style="height: 72px;" on every page, making the layout more robust and easier to maintain.
+
 This project is a showcase of various front-end projects. It is a single-page application that lists all the sub-projects.
 
 Fixed the link to the weather card project to be clickable.
@@ -204,6 +206,6 @@ Changed the `flex-direction` of the main content area to `column` to ensure the 
 
 Vertically centered the content on the privacy page by removing the `margin-bottom` from the container, allowing it to be properly centered by the parent flexbox.
 
-Replaced hardcoded placeholder height with a dynamic JavaScript solution. The `floating-topbar.js` component now calculates the actual height of the top bar after it renders and applies that height to the placeholder `div`. This removes the need for inline `style="height: 72px;"` on every page, making the layout more robust and easier to maintain.
+Replaced hardcoded placeholder height with a dynamic JavaScript solution. The `floating-topbar.js` component now calculates the actual height of the top bar after it renders and applies that height to the placeholder `div`. This removes the need for inline style="height: 72px;" on every page, making the layout more robust and easier to maintain.
 
 Fixed a bug where the dynamic placeholder height calculation for the floating top bar did not account for the 16px gap between the top bar and the screen. The script now correctly adds this gap to the total height, ensuring content is not obscured.
