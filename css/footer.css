@@ -131,3 +131,15 @@ body.dark-theme .footer-bottom p {
         text-align: center;
     }
 }
+
+@media (max-width: 480px) {
+    .footer-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding-inline: 1rem;
+    }
+}

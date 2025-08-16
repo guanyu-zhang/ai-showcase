@@ -49,6 +49,8 @@ body {
 
 h1 {
     font-size: 3em;
+    word-break: break-word;
+    max-width: 100%;
 }
 
 .content-wrap {
@@ -59,7 +61,13 @@ h1 {
     flex-wrap: wrap;
     gap: 20px;
     flex: 1;
-    padding: 20px;
+    padding: 20px; /* Default padding */
+}
+
+@media (max-width: 480px) {
+    .content-wrap {
+        padding-inline: 1rem; /* Adjust padding for very narrow screens */
+    }
 }
 
 body.dark-theme {

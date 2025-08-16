@@ -1,6 +1,6 @@
 /* === Base (both themes) ======================================= */
 .floating-topbar {
-  position: fixed; inset: 16px 0 auto 0; height: 56px;
+  position: fixed; inset: 16px 1rem auto 1rem; height: 56px;
   border-radius: 16px;
   z-index: 1000; display: grid; place-items: center;
   /* wrapper must be visually neutral */
@@ -15,7 +15,7 @@
 .floating-topbar::after { content: none !important; }
 
 .floating-topbar .topbar-inner {
-  width: min(100% - 32px, 1280px);
+  width: min(calc(100% - 2rem), 1280px);
   height: 100%;
   display: flex; align-items: center; justify-content: space-between;
   padding-inline: clamp(14px, 3vw, 28px);

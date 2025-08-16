@@ -1,6 +1,6 @@
 :host{
   /* Size & shape */
-  --card-w: clamp(280px, 34vw, 420px);
+  --card-w: clamp(180px, 80vw, 420px);
   --card-h: clamp(200px, 28vw, 300px);
   --radius: 18px;
   --pad: 16px;

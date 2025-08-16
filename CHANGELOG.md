@@ -1,3 +1,28 @@
+Removed padding from footer-bottom on very narrow screens:
+- Removed `padding-inline: 1rem;` from `.footer-bottom` within the `max-width: 480px` media query in `css/footer.css` to allow its content to extend closer to the screen edges.
+
+Fixed footer container width on very narrow screens:
+- Added `width: 100%;` to `.footer-container` within the `max-width: 480px` media query in `css/footer.css` to ensure it spans the full available width of its parent on very narrow screens.
+
+Reverted unnecessary change to footer-column min-width:
+- Reverted the change that removed `min-width: 200px;` from `.footer-column` on narrow screens, as it was not the cause of the footer centering issue.
+
+Fixed footer lines not centered on very narrow screens:
+- Adjusted `padding-inline` of `.site-footer` and `.footer-bottom` to `1rem` for `max-width: 480px` in `css/footer.css` to improve centering of content and visual alignment of borders on very narrow screens.
+
+Fixed content overflow and centering on very narrow screens:
+- Added `word-break: break-word;` and `max-width: 100%;` to `h1` in `css/global-theme.css` to prevent text overflow.
+- Adjusted `--card-w` in `components/flipping-card/flipping-card.css` to `clamp(180px, 80vw, 420px)` to allow flipping cards to shrink on very narrow screens and prevent horizontal overflow.
+
+Fixed content not horizontally centered on extremely narrow screens:
+- Added a media query for `max-width: 480px` to `css/global-theme.css` to set `padding-inline: 1rem;` for `.content-wrap`, allowing more space for content to center on very narrow screens.
+
+Fixed floating top bar too close to screen edges on mobile:
+- Adjusted `inset` property of `.floating-topbar` in `components/floating-topbar/floating-topbar.css` from `16px 0 auto 0` to `16px 1rem auto 1rem` to provide consistent horizontal padding on smaller screens.
+
+Fixed floating top bar too close to screen edges on mobile:
+- Adjusted `width` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` from `min(100% - 32px, 1280px)` to `min(calc(100% - 2rem), 1280px)` to provide consistent horizontal padding on smaller screens.
+
 Fixed "entirely.ai" hyperlink not working on GitHub Pages:
 - Dynamically updated the `href` of the `.brand` link in `components/floating-topbar/floating-topbar.js` to use the `basePath` variable, ensuring correct navigation in both local and GitHub Pages environments.
 
@@ -139,7 +164,7 @@ Organized the project structure by creating `css`, `html`, and `js` directories 
 Moved `html/index.html` to the project root (`index.html`) to serve as the main entry point for GitHub Pages deployment. Verified that all internal links to `index.html` (e.g., brand links in the floating top bar) correctly point to the new root location.
 
 Converted the floating top bar into a reusable component. This involved:
-- Creating a new directory: `components/floating-topbar/`.
+- Creating a new directory: `components/floating-topbar/`
 - Moving the HTML structure of the floating top bar into `components/floating-topbar/floating-topbar.html`.
 - Moving the CSS from `css/floating-topbar.css` to `components/floating-topbar/floating-topbar.css`.
 - Creating `components/floating-topbar/floating-topbar.js` to dynamically load the HTML and CSS into a placeholder.
@@ -159,7 +184,7 @@ Improved the readability of text behind the floating top bar's glass effect by r
 
 Further improved the readability of text behind the floating top bar by reducing the `backdrop-filter` blur from `5px` to `2px` and increasing the background opacity from `0.8` to `0.9` for both dark and light themes in `css/global-theme.css`.
 
-Significantly improved the readability of text behind the floating top bar by increasing the `backdrop-filter` blur to `20px` and decreasing the background opacity to `0.6` for both dark and light themes in `css/global-theme.css`. This creates a stronger frosted glass effect that better obscures background content, making the text on the top bar more distinct.
+Significantly improved the readability of text behind the floating top bar by increasing the `backdrop-filter` blur to `20px` and decreasing the background opacity to `0.6` for both dark and light themes in `css/global-theme.css`.
 
 Removed the `backdrop-filter` (frosted glass effect) from the floating top bar and made it fully opaque. This was achieved by removing the `backdrop-filter` and `-webkit-backdrop-filter` properties from `.floating-topbar` in `components/floating-topbar/floating-topbar.css`, and setting the alpha value of `--topbar-bg-dark` and `--topbar-bg-light` to `1` (fully opaque) in `css/global-theme.css`. The `--topbar-blur` variable was also removed from `css/global-theme.css` as it is no longer needed.
 
@@ -226,7 +251,8 @@ Improved the shadow effect of the floating top bar in dark mode:
 - Fixed the floating top bar not being centered by applying `left: 50%; transform: translateX(-50%);` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`
 - Refined the shadow effect of the floating top bar in dark mode by changing `--topbar-shadow-dark` in `css/global-theme.css` to a softer, less overpowering black shadow (`0 4px 12px rgba(0,0,0,0.4)`).
 - Fixed blurred and invisible top bar borders by moving the `backdrop-filter` from `.topbar-inner` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`, ensuring the border remains sharp.
-- Enhanced the purple border of the floating top bar in dark mode to fully wrap around the top bar with a consistent thickness, high saturation, and a subtle glow gradient, improving visibility and reinforcing brand color.
+
+Enhanced the purple border of the floating top bar in dark mode to fully wrap around the top bar with a consistent thickness, high saturation, and a subtle glow gradient, improving visibility and reinforcing brand color.
 
 Refined floating top bar styling for light and dark modes:
 - In light mode, removed extra border and drop-shadow layers, implementing a clean, subtle 1px solid rgba(0,0,0,0.08) border and a soft 0 2px 10px rgba(0,0,0,0.06) box-shadow for elevation, ensuring a flat and airy minimalist aesthetic.
