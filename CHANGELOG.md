@@ -1,6 +1,74 @@
-Replaced hardcoded placeholder height with a dynamic JavaScript solution. The `floating-topbar.js` component now calculates the actual height of the top bar after it renders and applies that height to the placeholder `div`. This removes the need for inline style="height: 72px;" on every page, making the layout more robust and easier to maintain.
+Fixed "entirely.ai" hyperlink not working on GitHub Pages:
+- Dynamically updated the `href` of the `.brand` link in `components/floating-topbar/floating-topbar.js` to use the `basePath` variable, ensuring correct navigation in both local and GitHub Pages environments.
 
-This project is a showcase of various front-end projects. It is a single-page application that lists all the sub-projects.
+Fixed "Vibe Coding Showcase" title not horizontally centered on narrow screens:
+- Added `text-align: center;` to the `h1` rule within the `max-width: 768px` media query in `css/global-theme.css`.
+
+Fixed colorful font not applying to flipping card titles:
+- Loaded `components/colorful-font/colorful-font.css` directly into the shadow DOM of `flipping-card` components in `components/flipping-card/flipping-card.js` to ensure styles are applied within the encapsulated environment.
+
+Increased "Vibe Coding Showcase" title font size:
+- Set `font-size: 3em;` for `h1` in `css/global-theme.css` to make the title larger.
+
+Fixed colorful font not applying:
+- Linked `components/colorful-font/colorful-font.css` in `index.html` to ensure the styles are loaded.
+
+Applied colorful font to "Vibe Coding Showcase" title and flipping card titles:
+- Added `colorful-font` class to the `<h1>` element in `index.html`.
+- Added `colorful-font` class to the `<h2>` element with class `title` in `components/flipping-card/flipping-card.html`.
+
+Prevented flipping card overlap:
+- Added `box-sizing: border-box;` to the `:host` element in `components/flipping-card/flipping-card.css` to ensure padding and borders are included in the element's total width, preventing overlap.
+
+Improved flipping card layout:
+- Configured `#projects-container` in `css/global-theme.css` as a flex container with `flex-wrap: wrap`, `justify-content: center`, and `gap: 20px` to enable horizontal arrangement and wrapping of cards.
+- Modified `:host` in `components/flipping-card/flipping-card.css` to `display: inline-block` and added `flex-basis: calc(33.33% - 14px)` to allow up to 3 cards per row on wide screens while maintaining proper spacing and centering.
+
+Fixed flipping card not centered on narrow screens:
+- Changed `display` property of `:host` in `components/flipping-card/flipping-card.css` from `inline-block` to `block` to allow proper centering by its parent flex container.
+
+Fixed flipping card behavior for PC and mobile devices:
+- On PC, hovering flips the card, and clicking navigates directly to the subproject page.
+- On mobile, the first click flips the card, and the second click navigates to the subproject page.
+- This was achieved by modifying `components/flipping-card/flipping-card.js` to differentiate between PC and mobile interactions using `window.matchMedia('(pointer: coarse)').matches`.
+
+Re-enabled hover-to-flip functionality for flipping cards on PC, while retaining click-to-flip/navigate for all devices. This was achieved by re-introducing the `:hover` CSS rule within a media query in `components/flipping-card/flipping-card.css` to target hover-capable devices.
+
+Removed hover-to-flip functionality from flipping cards on PC, ensuring consistent click-to-flip and click-to-navigate behavior across all devices. This was achieved by removing the `:hover` CSS rule from `components/flipping-card/flipping-card.css`.
+
+Implemented conditional click behavior for flipping cards on mobile devices:
+- When the card is face up, clicking it flips it to the back side.
+- When the card is face down, clicking it navigates to the subproject page.
+- This was achieved by:
+    - Removing the external navigation click listener from `js/main.js`.
+    - Passing `projectPath` as an attribute to the `flip-card` custom element.
+    - Modifying `components/flipping-card/flipping-card.js` to handle the `project-path` attribute and implement the conditional click logic within the custom element.
+
+Enabled flipping card functionality on mobile devices by:
+- Modifying `components/flipping-card/flipping-card.js` to toggle a `flipped` class on click events.
+- Updating `components/flipping-card/flipping-card.css` to use the `flipped` class for the flip transformation instead of the `:hover` pseudo-class.
+
+Fixed a `SyntaxError` in `js/main.js` caused by an unescaped single quote in the "Weather Card" project description.
+
+Fixed a `SyntaxError` in `js/main.js` caused by an unescaped single quote in the "Todo List" project description.
+
+Updated project descriptions in `js/main.js` to be more detailed, ensuring the presence of a scrollbar on the back of the flipping cards. Increased the font size of the project details on the back of the flipping cards in `components/flipping-card/flipping-card.css` for better readability.
+
+Refactored `flipping-card` component's breathing border effect to use global CSS variables defined in `global-theme.css`, ensuring consistent theming and maintainability. Fixed an issue where the dark mode breathing border was not purple by updating `flipping-card.css` to correctly react to the `dark-theme` class on the `body` element.
+
+Ensured `global.js` is loaded on sub-project pages (Todo List, Weather Card) and the Privacy Policy page to correctly provide `basePath` and enable the floating top bar and footer.
+
+Re-implemented the flipping card component to strictly adhere to the original `flipping-card.html` file. This involved:
+- Recreating `components/flipping-card/flipping-card.html` with the exact HTML structure.
+- Recreating `components/flipping-card/flipping-card.css` with the exact CSS from the original file.
+- Recreating `components/flipping-card/flipping-card.js` with the JavaScript logic, modified to load HTML and CSS from external files and use the `basePath` variable.
+- Created `js/global.js` to define the `basePath` variable for global access.
+- Modified `index.html` to load `js/global.js` first and removed the `colorful-font.css` link.
+- Modified `js/main.js` to remove redundant `basePath` definition and `colorful-font.css` loading, and to correctly use the new `flip-card` custom element.
+
+Replaced the static project list with dynamic, interactive flipping cards. This was achieved by creating a new `flipping-card` web component with its own HTML, CSS, and JavaScript, encapsulating the card's structure, style, and behavior. A reusable `colorful-font` component was also created for the card titles. The main page was updated to dynamically load and display the project cards, and the old project list was removed. The global theme was updated to support the new card's breathing light effect.
+
+Replaced hardcoded placeholder height with a dynamic JavaScript solution. The `floating-topbar.js` component now calculates the actual height of the top bar after it renders and applies that height to the placeholder `div`. This removes the need for inline style="height: 72px;" on every page, making the layout more robust and easier to maintain.
 
 Fixed the link to the weather card project to be clickable.
 
@@ -76,6 +144,7 @@ Converted the floating top bar into a reusable component. This involved:
 - Moving the CSS from `css/floating-topbar.css` to `components/floating-topbar/floating-topbar.css`.
 - Creating `components/floating-topbar/floating-topbar.js` to dynamically load the HTML and CSS into a placeholder.
 - Replacing the existing floating top bar HTML in `index.html`, `projects/weather-card/index.html`, and `html/privacy.html` with a placeholder `div` (`<div id="floating-topbar-placeholder"></div>`).
+
 - Updating `js/main.js` to load the new `floating-topbar.js` component.
 
 Fixed the issue where the floating top bar was not visible by removing the `.theme-toggle` styles from `components/floating-topbar/floating-topbar.css`. This ensures that the theme toggle's own CSS (`components/theme-toggle/theme-toggle.css`) is the sole source of truth for its styling, preventing conflicts and ensuring proper rendering within the top bar.
@@ -155,7 +224,7 @@ Improved the shadow effect of the floating top bar in dark mode:
 - Applied `--topbar-shadow-dark` to the `box-shadow` of `.topbar-inner` in `components/floating-topbar/floating-topbar.css` when `body.dark-theme` is active.
 - Adjusted the width of the `.floating-topbar` to be slightly wider than the `.topbar-inner` by introducing new CSS variables (`--topbar-inner-max-width-mobile`, `--topbar-inner-max-width-desktop`, `--floating-topbar-max-width-mobile`, `--floating-topbar-max-width-desktop`) in `css/global-theme.css` and applying them to `.floating-topbar` and `.topbar-inner` in `components/floating-topbar/floating-topbar.css`.
 - Fixed the floating top bar not being centered by applying `left: 50%; transform: translateX(-50%);` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`
-- Refined the shadow effect of the floating top bar in dark mode by changing `--topbar-shadow-dark` in `css/global-theme.css` to a softer, less overpowering black shadow (`0 4px 12px rgba(0, 0, 0, 0.4)`).
+- Refined the shadow effect of the floating top bar in dark mode by changing `--topbar-shadow-dark` in `css/global-theme.css` to a softer, less overpowering black shadow (`0 4px 12px rgba(0,0,0,0.4)`).
 - Fixed blurred and invisible top bar borders by moving the `backdrop-filter` from `.topbar-inner` to `.floating-topbar` in `components/floating-topbar/floating-topbar.css`, ensuring the border remains sharp.
 - Enhanced the purple border of the floating top bar in dark mode to fully wrap around the top bar with a consistent thickness, high saturation, and a subtle glow gradient, improving visibility and reinforcing brand color.
 
@@ -209,3 +278,6 @@ Vertically centered the content on the privacy page by removing the `margin-bott
 Replaced hardcoded placeholder height with a dynamic JavaScript solution. The `floating-topbar.js` component now calculates the actual height of the top bar after it renders and applies that height to the placeholder `div`. This removes the need for inline style="height: 72px;" on every page, making the layout more robust and easier to maintain.
 
 Fixed a bug where the dynamic placeholder height calculation for the floating top bar did not account for the 16px gap between the top bar and the screen. The script now correctly adds this gap to the total height, ensuring content is not obscured.
+
+Fixed colorful font not applying:
+- Linked `components/colorful-font/colorful-font.css` in `index.html` to ensure the styles are loaded.

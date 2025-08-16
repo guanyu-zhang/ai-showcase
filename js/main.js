@@ -1,7 +1,3 @@
-const REPO = 'ai-showcase';
-const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-const basePath = isLocal ? '' : `/${REPO}`;
-
 // Function to add meta and link tags to the head
 function addHeadTags() {
     const head = document.head;
@@ -69,13 +65,38 @@ document.addEventListener('DOMContentLoaded', function() {
     topbarScript.onerror = () => console.error('main.js: floating-topbar.js failed to load.');
     document.body.appendChild(topbarScript);
 
-    // Add event listeners for project buttons
-    document.querySelectorAll('.view-project-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const projectPath = this.dataset.projectPath;
-            if (projectPath) {
-                window.location.href = `${basePath}/${projectPath}`;
+    // Load Flipping Card Component
+    const flippingCardScript = document.createElement('script');
+    flippingCardScript.src = `${basePath}/components/flipping-card/flipping-card.js`;
+    flippingCardScript.onload = () => {
+        console.log('main.js: flipping-card.js loaded.');
+        // After the script is loaded, create the project cards
+        createProjectCards();
+    };
+    flippingCardScript.onerror = () => console.error('main.js: flipping-card.js failed to load.');
+    document.body.appendChild(flippingCardScript);
+
+    function createProjectCards() {
+        const projects = [
+            {
+                title: 'Todo List',
+                details: '<p>This is a feature-rich Todo List application designed to help users manage their daily tasks efficiently. It leverages the power of browser\'s localStorage to ensure that all your tasks are persistently saved, even if you close the browser or refresh the page. Users can add new tasks, mark them as complete, and delete them. The intuitive user interface makes task management a breeze, providing a seamless experience for organizing your to-do items and staying productive throughout your day. This application demonstrates robust client-side data storage and dynamic DOM manipulation.</p>',
+                projectPath: 'projects/todo-list/index.html'
+            },
+            {
+                title: 'Weather Card',
+                details: '<p>The Weather Card application provides real-time weather information for any specified location. Users can input a city name, and the application will fetch and display current weather conditions, including temperature, humidity, wind speed, and a brief description of the weather. This project showcases asynchronous data fetching using modern JavaScript APIs, dynamic content updates, and responsive design to ensure a pleasant user experience across various devices. It\'s a practical example of integrating external APIs to deliver valuable information directly to the user.</p>',
+                projectPath: 'projects/weather-card/index.html'
             }
+        ];
+
+        const projectsContainer = document.getElementById('projects-container');
+        projects.forEach(project => {
+            const card = document.createElement('flip-card');
+            card.setAttribute('title', project.title);
+            card.setAttribute('details', project.details);
+            card.setAttribute('project-path', project.projectPath);
+            projectsContainer.appendChild(card);
         });
-    });
+    }
 });

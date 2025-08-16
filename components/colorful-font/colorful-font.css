@@ -1,0 +1,6 @@
+.colorful-font {
+    background: linear-gradient(92deg,#8e5cff 0%, #4e9eff 35%, #13d5d2 70%, #75f28c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

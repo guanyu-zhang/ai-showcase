@@ -17,6 +17,15 @@ if (placeholder) {
             placeholder.innerHTML = html;
             console.log('floating-topbar.js: HTML inserted.');
 
+            // Find the brand link and update its href
+            const brandLink = placeholder.querySelector('.brand');
+            if (brandLink) {
+                brandLink.href = `${basePath}/`;
+                console.log(`floating-topbar.js: Updated brand link href to: ${brandLink.href}`);
+            } else {
+                console.error('floating-topbar.js: Brand link (.brand) not found in floating top bar.');
+            }
+
             const topbarElement = placeholder.querySelector('.floating-topbar');
 
             // Load CSS dynamically

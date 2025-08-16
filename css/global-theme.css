@@ -7,7 +7,7 @@
     --input-bg-color-dark: #222;
     --text-color-muted-dark: #888;
     --icon-color-dark: #aaa;
-    
+    --glow-color-dark: rgba(180, 80, 255, 0.85);
 
     --bg-color-light: #f5f5f5;
     --text-color-light: #333333;
@@ -17,9 +17,24 @@
     --input-bg-color-light: #fff;
     --text-color-muted-light: #888;
     --icon-color-light: #555;
-    
+    --glow-color-light: rgba(0, 153, 255, 0.85);
 
-    
+    --sb-track-color-light: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.03));
+    --sb-ff-thumb-color-light: #7aaeff;
+    --sb-ff-track-color-light: rgba(0,0,0,.06);
+    --sb-thumb-start-color-light: #a59dff;
+    --sb-thumb-end-color-light: #6ab5ff;
+    --sb-thumb-hover-start-color-light: #bdb6ff;
+    --sb-thumb-hover-end-color-light: #87c9ff;
+    --sb-thumb-active-start-color-light: #8f86ff;
+    --sb-thumb-active-end-color-light: #56a7ff;
+    --sb-thumb-ring-color-light: rgba(0,0,0,.14);
+    --sb-glow-color-light: rgba(104,139,255,.45);
+
+    --shadow-color-light: 0 10px 30px rgba(0,0,0,.12);
+    --text-color-strong-light: #0e1222;
+    --breathing-glow-light-color: rgba(102, 204, 255, 0.40);
+    --breathing-glow-light-color-strong: rgba(102, 204, 255, 0.55);
 }
 
 body {
@@ -30,6 +45,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+h1 {
+    font-size: 3em;
 }
 
 .content-wrap {
@@ -53,6 +72,24 @@ body.dark-theme {
     --input-bg-color: var(--input-bg-color-dark);
     --text-color-muted: var(--text-color-muted-dark);
     --icon-color: var(--icon-color-dark);
+    --glow-color: var(--glow-color-dark);
+
+    --sb-track-color: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.06));
+    --sb-ff-thumb-color: #a7d4ff;
+    --sb-ff-track-color: rgba(195,205,255,.22);
+    --sb-thumb-start-color: #cfe3ff;
+    --sb-thumb-end-color: #8fe0ff;
+    --sb-thumb-hover-start-color: #e0ecff;
+    --sb-thumb-hover-end-color: #9be6ff;
+    --sb-thumb-active-start-color: #b9c7ff;
+    --sb-thumb-active-end-color: #74c8ff;
+    --sb-thumb-ring-color: rgba(200,210,255,.38);
+    --sb-glow-color: rgba(160,190,255,.75);
+
+    --shadow-color: 0 16px 46px rgba(0,0,0,.6);
+    --text-color-strong: #ffffff;
+    --breathing-glow-dark-color: rgba(174, 113, 255, 0.35);
+    --breathing-glow-dark-color-strong: rgba(174, 113, 255, 0.55);
 }
 
 body.light-theme {
@@ -65,69 +102,28 @@ body.light-theme {
     --input-bg-color: var(--input-bg-color-light);
     --text-color-muted: var(--text-color-muted-light);
     --icon-color: var(--icon-color-light);
-}
+    --glow-color: var(--glow-color-light);
 
-.project-list {
-    list-style: none;
-    padding: 0;
-    max-width: 800px;
-    margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: clamp(16px, 2.4vw, 28px);
-}
+    --sb-track-color: var(--sb-track-color-light);
+    --sb-ff-thumb-color: var(--sb-ff-thumb-color-light);
+    --sb-ff-track-color: var(--sb-ff-track-color-light);
+    --sb-thumb-start-color: var(--sb-thumb-start-color-light);
+    --sb-thumb-end-color: var(--sb-thumb-end-color-light);
+    --sb-thumb-hover-start-color: var(--sb-thumb-hover-start-color-light);
+    --sb-thumb-hover-end-color: var(--sb-thumb-hover-end-color-light);
+    --sb-thumb-active-start-color: var(--sb-thumb-active-start-color-light);
+    --sb-thumb-active-end-color: var(--sb-thumb-active-end-color-light);
+    --sb-thumb-ring-color: var(--sb-thumb-ring-color-light);
+    --sb-glow-color: var(--sb-glow-color-light);
 
-.project-list li {
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background-color 0.3s;
-    animation: glow 3s infinite ease-in-out;
-    width: clamp(220px, 20vw, 280px);
-}
-
-body.dark-theme .project-list li {
-    background-color: var(--card-bg-color-dark);
-    --glow-color: rgba(180, 120, 255, 0.7);
-}
-
-body.light-theme .project-list li {
-    background-color: var(--card-bg-color-light);
-    --glow-color: rgba(0, 123, 255, 0.5);
-}
-
-.project-list summary {
-    font-size: 1.2em;
-    font-weight: 700;
-    cursor: pointer;
-    outline: none;
-}
-
-.project-list p {
-    margin-top: 10px;
-    line-height: 1.6;
-}
-
-.view-project-btn {
-    background-color: var(--accent-color-light);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-family: inherit;
-}
-
-body.dark-theme .view-project-btn {
-    background-color: var(--accent-color-dark);
+    --shadow-color: var(--shadow-color-light);
+    --text-color-strong: var(--text-color-strong-light);
 }
 
 @media (max-width: 768px) {
     h1 {
         margin-top: 60px;
+        text-align: center;
     }
     .footer-container {
         flex-direction: column;
@@ -138,14 +134,9 @@ body.dark-theme .view-project-btn {
     }
 }
 
-@keyframes glow {
-    0% {
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    50% {
-        box-shadow: 0 6px 20px var(--glow-color, rgba(0, 123, 255, 0.5));
-    }
-    100% {
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
+#projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
